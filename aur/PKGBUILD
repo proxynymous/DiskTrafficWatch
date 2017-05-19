@@ -7,8 +7,8 @@ pkgdesc="Utilities to observe the number of bytes written to disk."
 arch=('i686' 'x86_64')
 url="https://github.com/proxynymous/DiskTrafficWatch"
 license=('GPL3')
-depends=('systemd>=233')
-makedepends=('git' 'rustc>=1.17.0' 'cargo>=0.18.0')
+depends=('systemd>=232')
+makedepends=('git' 'rust>=1.17.0' 'cargo>=0.18.0')
 replaces=()
 backup=()
 options=()
@@ -46,4 +46,7 @@ package() {
   mkdir -p "$pkgdir/usr/bin"
   cp "target/release/dtinfo" "$pkgdir/usr/bin"
   cp "target/release/dtlog" "$pkgdir/usr/bin"
+
+  mkdir -p "$pkgdir/usr/lib/systemd/system/"
+  cp "systemd/dtlog.service" "$pkgdir/usr/lib/systemd/system/"
 }
