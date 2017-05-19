@@ -1,8 +1,8 @@
-mod dulib;
+mod dtlib;
 
 fn main() {
-  let written = dulib::du::get_bytes_written();
-  let utime = dulib::uptime::get_uptime();
+  let written = dtlib::dt::get_bytes_written();
+  let utime = dtlib::uptime::get_uptime();
 
   match (
   	  written.ok().map(sectors_to_gb),
@@ -20,6 +20,5 @@ fn main() {
 }
 
 fn sectors_to_gb(sectors : usize) -> f32 {
-  return (sectors * dulib::du::BLOCK_SIZE) as f32 / (1024 * 1024 * 1024) as f32;
+  return (sectors * dtlib::dt::BLOCK_SIZE) as f32 / (1024 * 1024 * 1024) as f32;
 }
-

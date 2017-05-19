@@ -2,13 +2,13 @@
 use std::io::prelude::*;
 use std::time::Duration;
 use std::fs::OpenOptions;
-mod dulib;
+mod dtlib;
 
-const LOG_FILE : &str = "/var/log/dulog";
+const LOG_FILE : &str = "/var/log/dtlog";
 
 fn main() {
-  let written = dulib::du::get_bytes_written();
-  let utime = dulib::uptime::get_uptime();
+  let written = dtlib::dt::get_bytes_written();
+  let utime = dtlib::uptime::get_uptime();
 
   match (
   	  written.ok(),

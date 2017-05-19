@@ -1,12 +1,12 @@
-diskusagewatch_sources = [
-  'duwatch.rs',
+disktrafficwatch_sources = [
+  'dtwatch.rs',
 ]
 
-diskusagewatch_deps = [
+disktrafficwatch_deps = [
 #  dependency('glib-2.0'),
 ]
 
-executable('duwatch', diskusagewatch_sources,
-  dependencies: diskusagewatch_deps,
+executable('dtwatch', disktrafficwatch_sources,
+  dependencies: disktrafficwatch_deps,
   install: false,
 )

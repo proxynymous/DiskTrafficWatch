@@ -1,4 +1,4 @@
-project('diskusagewatch', 'rust',
+project('disktrafficwatch', 'rust',
   version: '0.1.0',
   meson_version: '>= 0.36.0',
 )
