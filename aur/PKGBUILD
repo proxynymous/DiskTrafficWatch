@@ -1,6 +1,6 @@
 # Maintainer: proxynymous <proxynymous@protonmail.ch>
 
-pkgname=dttrafficwatch-git
+pkgname=dtwatch-git
 pkgver=0.1
 pkgrel=1
 pkgdesc="Utilities to observe the number of bytes written to disk."
@@ -9,28 +9,41 @@ url="https://github.com/proxynymous/DiskTrafficWatch"
 license=('GPL3')
 depends=('systemd>=233')
 makedepends=('git' 'rustc>=1.17.0' 'cargo>=0.18.0')
+replaces=()
+backup=()
+options=()
+install=
 source=('git+https://github.com/proxynymous/DiskTrafficWatch.git')
+noextract=()
 md5sums=('SKIP')
+
 _gitname="DiskTrafficWatch"
 
-prepare() {
-  cd $_gitname
-  git submodule init
-  git submodule update
-}
+# Please refer to the 'USING VCS SOURCES' section of the PKGBUILD man page for
+# a description of each element in the source array.
 
 pkgver() {
-  cd "$srcdir/$_gitname"
-  git describe --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+	cd "$srcdir/$_gitname"
+
+# Git, no tags available
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+	cd "$srcdir/$_gitname"
+
 }
 
 build() {
-  cd "$srcdir/$_gitname"
-  ./configure
+	cd "$srcdir/$_gitname"
+
+  cargo build --release
 }
 
 package() {
-  cd $_gitname
-  mkdir -p "$pkgdir/usr/local/bin"
-  DESTDIR="$pkgdir" make install
+	cd "$srcdir/$_gitname"
+
+  mkdir -p "$pkgdir/usr/bin"
+  cp "target/release/dtinfo" "$pkgdir/usr/bin"
+  cp "target/release/dtlog" "$pkgdir/usr/bin"
 }
