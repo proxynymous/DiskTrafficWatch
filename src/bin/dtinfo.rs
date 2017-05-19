@@ -1,8 +1,11 @@
-mod dtlib;
+extern crate dtlib;
+
+use dtlib::dt;
+use dtlib::uptime;
 
 fn main() {
-  let written = dtlib::dt::get_bytes_written();
-  let utime = dtlib::uptime::get_uptime();
+  let written = dt::get_bytes_written();
+  let utime = uptime::get_uptime();
 
   match (
   	  written.ok().map(sectors_to_gb),

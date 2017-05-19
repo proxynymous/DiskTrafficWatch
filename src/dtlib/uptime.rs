@@ -2,7 +2,7 @@ use std::io::Result;
 use std::io::{Error, ErrorKind};
 use std::time::Duration;
 
-use dtlib::shared;
+use shared;
 
 const UPTIME_PATH : &str = "/proc/uptime";
 const UPTIME_WS_IDX : usize = 0;

@@ -1,3 +1,2 @@
-build
-src/dtinfo
-src/dtlog
+target
+*.lock

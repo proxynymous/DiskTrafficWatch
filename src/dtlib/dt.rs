@@ -1,7 +1,7 @@
 use std::io::Result;
 use std::io::{Error, ErrorKind};
 
-use dtlib::shared;
+use shared;
 
 const STAT_PATH : &str = "/sys/block/sda/stat";
 const SECTOR_IDX : usize = 6;

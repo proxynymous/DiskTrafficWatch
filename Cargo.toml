@@ -1,0 +1,8 @@
+[package]
+name = "disk_traffic_watch"
+version = "0.1.0"
+authors = ["proxynymous <proxynymous@protonmail.ch>"]
+
+[lib]
+name = "dtlib"
+path = "src/dtlib/lib.rs"

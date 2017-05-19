@@ -2,7 +2,8 @@
 use std::io::prelude::*;
 use std::time::Duration;
 use std::fs::OpenOptions;
-mod dtlib;
+
+extern crate dtlib;
 
 const LOG_FILE : &str = "/var/log/dtlog";
 
@@ -57,6 +58,3 @@ fn append_to_log(log_path : &str, out : &str) -> bool {
     return false;
   }
 }
-
-
-
