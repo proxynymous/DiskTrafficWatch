@@ -19,7 +19,7 @@ fn main() {
       let log_str = format_log_string(gbs, utime);
 
       if append_to_log(LOG_FILE, log_str.as_str()) {
-        println!("Successfully saved du stats to {}", LOG_FILE);
+        println!("Successfully saved dt stats to {}", LOG_FILE);
       }
 
       else {
