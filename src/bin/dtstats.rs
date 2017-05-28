@@ -26,7 +26,22 @@ fn main() {
             let stats = stats_opt.unwrap();
 
             print!(
-                " == DT Stats == \n\nSectors written: {}\nGB written: {}\nUptime (h): {}\nUptime (d): {}\nUptime (y): {}\nGB/h: {}\nGB/d: {}\nGB/y: {}\nDays until 100GB written: {}\nDays until 1TB written: {}\nDays until 100TB written: {} = {} years\n",
+                " == DT Stats == \n\
+                 \n\
+                 Sectors written: {}\n\
+                 GB written: {}\n\
+                 \n\
+                 Uptime (h): {}\n\
+                 Uptime (d): {}\n\
+                 Uptime (y): {}\n\
+                 \n\
+                 GB/h: {}\n\
+                 GB/d: {}\n\
+                 GB/y: {}\n\
+                 \n\
+                 Days until 100GB written: {}\n\
+                 Days until 1TB written: {}\n\
+                 Days until 100TB written: {} = {} years\n",
                 stats.sectors_written,
                 stats.gbytes_written,
                 stats.uptime_hours,
