@@ -46,6 +46,7 @@ package() {
   mkdir -p "$pkgdir/usr/bin"
   cp "target/release/dtinfo" "$pkgdir/usr/bin"
   cp "target/release/dtlog" "$pkgdir/usr/bin"
+	cp "target/release/dtstats" "$pkgdir/usr/bin"
 
   mkdir -p "$pkgdir/usr/lib/systemd/system/"
   cp "systemd/dtlog.service" "$pkgdir/usr/lib/systemd/system/"

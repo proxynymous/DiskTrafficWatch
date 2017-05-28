@@ -21,7 +21,7 @@ fn main() {
       }
 
       else {
-        println!("Failed saving du stats to {}", dtlib::constants::LOG_FILE);
+        println!("Failed saving dt stats to {}", dtlib::constants::LOG_FILE);
       }
     },
     _ => println!("Failed to retrieve information.")
