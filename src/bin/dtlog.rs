@@ -5,8 +5,6 @@ use std::fs::OpenOptions;
 
 extern crate dtlib;
 
-const LOG_FILE : &str = "/var/log/dtlog";
-
 fn main() {
   let written = dtlib::dt::get_bytes_written();
   let utime = dtlib::uptime::get_uptime();
@@ -18,12 +16,12 @@ fn main() {
     (Some(gbs), Some(utime)) => {
       let log_str = format_log_string(gbs, utime);
 
-      if append_to_log(LOG_FILE, log_str.as_str()) {
-        println!("Successfully saved dt stats to {}", LOG_FILE);
+      if append_to_log(dtlib::constants::LOG_FILE, log_str.as_str()) {
+        println!("Successfully saved dt stats to {}", dtlib::constants::LOG_FILE);
       }
 
       else {
-        println!("Failed saving du stats to {}", LOG_FILE);
+        println!("Failed saving du stats to {}", dtlib::constants::LOG_FILE);
       }
     },
     _ => println!("Failed to retrieve information.")

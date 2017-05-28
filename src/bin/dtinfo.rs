@@ -23,5 +23,5 @@ fn main() {
 }
 
 fn sectors_to_gb(sectors : usize) -> f32 {
-  return (sectors * dtlib::dt::BLOCK_SIZE) as f32 / (1024 * 1024 * 1024) as f32;
+  return (sectors * dtlib::constants::BLOCK_SIZE) as f32 / (1024 * 1024 * 1024) as f32;
 }

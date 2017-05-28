@@ -2,14 +2,12 @@ use std::io::Result;
 use std::io::{Error, ErrorKind};
 
 use shared;
+use constants;
 
-const STAT_PATH : &str = "/sys/block/sda/stat";
 const SECTOR_IDX : usize = 6;
-#[allow(dead_code)]
-pub const BLOCK_SIZE : usize = 512;
 
 pub fn get_bytes_written() -> Result<usize> {
-  return shared::read_file(STAT_PATH)
+  return shared::read_file(constants::STAT_PATH)
 	         .and_then(
 	           |s| extract_sectors_written(&s)
 	               .ok_or(

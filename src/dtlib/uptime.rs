@@ -3,13 +3,13 @@ use std::io::{Error, ErrorKind};
 use std::time::Duration;
 
 use shared;
+use constants;
 
-const UPTIME_PATH : &str = "/proc/uptime";
 const UPTIME_WS_IDX : usize = 0;
 const UPTIME_C_IDX : usize = 0;
 
 pub fn get_uptime() -> Result<Duration> {
-  return shared::read_file(UPTIME_PATH)
+  return shared::read_file(constants::UPTIME_PATH)
 	       .and_then(|s| extract_uptime(&s).ok_or(Error::new(ErrorKind::Other, "Could not parse the uptime")))
 	       .map(|secs| Duration::from_secs(secs))
 }
